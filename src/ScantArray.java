@@ -44,9 +44,10 @@ public class ScantArray {
      *                0 <= col < getNumColumns()
      */
     public int getValueAt(int row, int col){
-        //ScantArrayEntry tester = ScantArray[row][col];
+        //ScantArrayEntry tester = new ScantArrayEntry(row, col);
         //return tester.getValue();
         /* part a */
+        //return ScantArrayEntry.getValue([row][col]);
 
 
 
