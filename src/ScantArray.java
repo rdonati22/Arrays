@@ -67,12 +67,17 @@ public class ScantArray {
                 entries.remove(i);
             }
         }
-        for (int j = 0; j < entries.size(); j++){
-            if (entries.get(j).getColumn() == col+1){
-                //j.column = col--;
+        for (int j = entries.size()-1; j >= 0; j--){
+            if (entries.get(j).getColumn() > col){
+                int oldRow = entries.get(j).getRow();
+                int newCol = entries.get(j).getColumn() - 1;
+                int oldValue = entries.get(j).getValue();
+                ScantArrayEntry fix = new ScantArrayEntry(oldRow, newCol, oldValue);
+                entries.remove(entries.get(j));
+                entries.add(fix);
             }
-            col++;
         }
+        numColumns--;
     }
 
     /** Allows the ScantArray to be printed.  The
@@ -130,5 +135,8 @@ public class ScantArray {
         System.out.println(sa2);
         sa2.removeColumn(2);
         System.out.println(sa2);
+
+        System.out.println(sa2.getValueAt(2,2));
+        System.out.println(sa2.getValueAt(2,3));
     }
 }
